@@ -7,8 +7,6 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-input name="id" type="text" placeholder="请输入你要客户端id" [(ngModel)]="username"></ion-input>
+  <ion-button expand="full" color="primary" (click)="go()">开始测试</ion-button>
 </ion-content>

@@ -1,6 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {UUID} from 'angular2-uuid';
 import {skipWhile} from 'rxjs/operators';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-websocket',
@@ -11,28 +12,30 @@ export class WebsocketPage implements OnInit {
     messages: Array<string> = [];
     uuid = UUID.UUID();
     aa = '老康开课了';
-    time = 20;
+    time = 5;//设置提示时间，时间一过提醒消失
     noticebar: any;
     // content = '{\'content\': \'';
     // font = '\', \'font\':\'14px\'}';
     // noticebar = {'content': '我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！', 'font': '14px'};
 
     // bb = 'ws://127.0.0.1:8086/socketServer/' + this.uuid;
+    username: string;
 
-    socket = new WebSocket('ws://127.0.0.1:8080/socketServer/' + '1');
 
     show: boolean;
     message: string;
-
+    socket: any;
     @HostListener('window:beforeunload', ['$event'])
     doSomething($event) {
         this.CloseWebSocket();
     }
 
-    constructor() {
+    constructor(private  activatedRoute: ActivatedRoute) {
+        this.username = this.activatedRoute.snapshot.params['username'];
     }
 
     ngOnInit() {
+        this.socket = new WebSocket('ws://127.0.0.1:8080/socketServer/' + this.username);
         this.show = false;
         console.log('this.uuid:' + this.uuid);
         if (typeof (WebSocket) == 'undefined') {
@@ -80,7 +83,7 @@ export class WebsocketPage implements OnInit {
             };
             this.show = true;
             console.log('this.show:' + this.show);
-            if (this.time = 20) {
+            if (this.time = 5) {
                 this.setShow();
             }
             console.log('this.show:' + this.show);
@@ -102,7 +105,7 @@ export class WebsocketPage implements OnInit {
         if (this.time == 1) {
             console.log(this.time);
             this.show = false;
-            this.time = 20;
+            this.time = 5;
             return;
         } else {
             console.log(this.time);
