@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title *ngIf="!show">testwebsocket</ion-title>
+        <NoticeBar *ngIf="show" [option]=noticebar >
+        </NoticeBar>
+        <!--<NoticeBar [option]="{'content': '我是小黄条，小黄条的小，小黄条的黄，小黄条的条，请多多关照！！！', 'marqueeProps	':'{loop: true, leading: 10, trailing: 10, fps: 1, style: {}}','font': '14px'}">-->
+        <!--</NoticeBar>-->
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!--<NoticeBar *ngIf="show" [option]=noticebar >-->
+    <!--</NoticeBar>-->
+    <!--<p *ngIf="show">{{message}}</p>-->
+    <ion-button (click)="change()">显示</ion-button>
+</ion-content>
