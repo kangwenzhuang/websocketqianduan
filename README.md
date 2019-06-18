@@ -10,4 +10,4 @@
 跳到http://localhost:8100/websocket（由于后台模拟的只有用户1，2,3,）
 测试的时候开3个网页，分别输入1,2,4便能看到效果
 
-
+![Alt text](https://github.com/kangwenzhuang/websocketqianduan/blob/master/photos/1.png)
