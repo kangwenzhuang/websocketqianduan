@@ -2,6 +2,7 @@
 本项目测试websocket消息推送系统，ionic+ng-zorro
 后台地址https://github.com/kangwenzhuang/websocket
 
+
 要有前端基础，安装npm，angular7，ionic4，克隆项目，进入项目根目录npm run install，依赖包安装之后，ionic serve，访问网址http://localhost:8100/home
 
 实际中应该是登陆后，把用户信息写到本地储存！这里没有采用这种方式，我们的目的只是测试。这里采用输入页面的方式
@@ -21,3 +22,5 @@
 
 
 
+目前存在为问题，可以改进的地方，当两个通知相离很近的时候，后一个会把前一个挤掉，
+问题尚未解决，有个想法就是把socket = new WebSocket('ws://127.0.0.1:8080/socketServer/' + this.username);放在一个队列，保证每个提醒都是3秒，但是尚未解决
